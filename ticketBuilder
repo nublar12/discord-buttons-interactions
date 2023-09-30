@@ -1,0 +1,46 @@
+### Guía de Uso de la Función `ticketBuilder`
+
+La función `ticketBuilder` te permite crear y gestionar tickets en un servidor de Discord. Para usarla, sigue estos pasos:
+
+## 1. Crear un Objeto de Ticket
+
+```javascript
+const miTicket = ticketBuilder();
+```
+
+Esto crea un objeto de ticket llamado `miTicket` que tiene métodos para configurar propiedades del ticket y crearlo.
+
+## 2. Configurar Propiedades del Ticket
+
+Puedes configurar las propiedades del ticket utilizando los métodos proporcionados:
+
+```javascript
+miTicket.setCustomId('mi_custom_id');
+miTicket.setEquipo_soporte('id_equipo_soporte');
+miTicket.setCategoriaTicket('id_categoria');
+miTicket.setEmbedColor('color_embed');
+miTicket.setDescription('descripción_ticket');
+miTicket.setAuthor('nombre_autor');
+miTicket.setImage('url_imagen');
+miTicket.setThumbnail('url_miniatura');
+miTicket.setTimestamp('timestamp');
+miTicket.setChannelTranscript('id_canal_transcript');
+```
+
+Cada método se encarga de asignar un valor específico a una propiedad del ticket.
+
+## 3. Crear un Ticket
+
+```javascript
+miTicket.createTicket(interaction, client);
+```
+
+Para crear un ticket, llama al método `createTicket` y pasa la interacción (la interacción del usuario con tu bot) y el cliente de Discord.
+
+## 4. Cerrar un Ticket
+
+Cuando un usuario presiona el botón de "cerrar ticket", se ejecuta la lógica de cierre.
+
+## 5. Guardar la Transcripción
+
+La transcripción del ticket se guarda como un archivo HTML y se envía a un canal de logs junto con un mensaje de cierre.
