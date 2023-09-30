@@ -1,0 +1,58 @@
+# Guía de Uso de la Función `CreateReactionBuilder`
+
+La función `CreateReactionBuilder` permite construir un objeto `reaction` para gestionar roles a través de interacciones. A continuación se detalla cómo utilizar esta función en tu proyecto:
+
+## Instalación
+
+Asegúrate de tener Node.js instalado en tu entorno de desarrollo.
+
+1. Clona el repositorio o copia el código de la función `CreateReactionBuilder` en tu proyecto.
+
+2. Asegúrate de requerir la función en el archivo donde la vayas a utilizar:
+
+```javascript
+const { CreateReactionBuilder } = require('discord-buttons-interactions');
+```
+
+## Crear una Instancia de Reaction
+
+```javascript
+const reaction = CreateReactionBuilder();
+```
+
+## Configuración de Propiedades y Métodos
+
+Antes de utilizar la instancia de `reaction`, puedes personalizar sus propiedades y métodos utilizando los siguientes setters:
+
+- `setRoleId(roleId)`: Define el ID del rol que se asignará o eliminará.
+- `setCustomId(customId)`: Establece el ID personalizado del botón.
+- `setGrantedText(text)`: Define el mensaje a mostrar cuando se otorga el rol.
+- `setDeletedText(text)`: Define el mensaje a mostrar cuando se elimina el rol.
+
+Ejemplo:
+
+```javascript
+reaction.setRoleId('123456789012345678');
+reaction.setCustomId('Id del boton');
+reaction.setGrantedText('Rol otorgado:');
+reaction.setDeletedText('Rol eliminado:');
+```
+
+## Manejar un Botón de Rol en una Interacción
+
+Para utilizar el objeto `reaction` en una interacción de Discord, puedes llamar al método `handleRoleButton` con la interacción como argumento.
+
+Ejemplo:
+
+```javascript
+client.on('interactionCreate', async (interaction) => {
+  if (!interaction.isButton()) return;
+
+  await reaction.handleRoleButton(interaction);
+});
+```
+
+Recuerda que necesitarás tener correctamente configurado tu bot en Discord y haber añadido los permisos necesarios para modificar roles.
+
+¡Listo! Ahora puedes utilizar la función `CreateReactionBuilder` para gestionar roles en tus interacciones de Discord. Si necesitas mas 
+ayuda contacta con el creador: "".
